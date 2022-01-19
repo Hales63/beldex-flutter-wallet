@@ -351,7 +351,7 @@ class AddressBookPage extends BasePage {
                   width: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.only(bottom: 20,top: 20,),
                     child: Text(
-                  'Swipe left to more options',
+                  'Swipe left for more options',
                   style: TextStyle(fontSize:15.0,fontWeight:FontWeight.bold,color: Theme.of(context).primaryTextTheme.caption.color),
                   textAlign: TextAlign.center,
                 ))),

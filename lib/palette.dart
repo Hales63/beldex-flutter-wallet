@@ -38,7 +38,7 @@ class Palette {
   //
   static const Color buttonColor = Color.fromRGBO(4, 139, 241, 1.0);
   //-->
-  static const Color lightThemeBackground = Color.fromARGB(255, 245, 245, 245);
+  static const Color lightThemeBackground = Color.fromARGB(255, 246, 246, 246);
   static const Color lightThemeBlack = Color.fromRGBO(245, 245, 245, 1.0);
   //-->set pin border color
   static const Color darkThemeGrey = Color.fromRGBO(111, 111, 111, 1.0);
