@@ -29,8 +29,8 @@ class RestoreOptionsPage extends BasePage {
   @override
   Color get backgroundColor => Palette.creamyGrey;
 
-  final _imageSeedKeys = Image.asset('assets/images/seedKeys.png');
-  final _imageRestoreSeed = Image.asset('assets/images/restoreSeed.png');
+  //final _imageSeedKeys = Image.asset('assets/images/seedKeys.png');
+  //final _imageRestoreSeed = Image.asset('assets/images/restoreSeed.png');
 
   @override
   Widget body(BuildContext context) {

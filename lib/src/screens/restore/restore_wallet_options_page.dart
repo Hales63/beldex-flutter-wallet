@@ -31,8 +31,8 @@ class RestoreWalletOptionsPage extends BasePage {
         child: SvgPicture.asset('assets/images/beldex_logo_foreground1.svg'));
   }
 
-  final _imageSeed = Image.asset('assets/images/seedIco.png');
-  final _imageKeys = Image.asset('assets/images/keysIco.png');
+  //final _imageSeed = Image.asset('assets/images/seedIco.png');
+  //final _imageKeys = Image.asset('assets/images/keysIco.png');
 
   @override
   Widget body(BuildContext context) {

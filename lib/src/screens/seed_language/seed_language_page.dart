@@ -38,7 +38,7 @@ class SeedLanguageRoute extends StatefulWidget {
 }
 
 class _SeedLanguageState extends State<SeedLanguageRoute> {
-  final imageSeed = Image.asset('assets/images/seedIco.png');
+  //final imageSeed = Image.asset('assets/images/seedIco.png');
   var scrollController = ScrollController(keepScrollOffset: true);
 
   final List<String> seedLocales = [
