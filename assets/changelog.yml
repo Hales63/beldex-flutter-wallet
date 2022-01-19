@@ -1,0 +1,14 @@
+-
+  version: 1.0.0
+  changes:
+    - Initial release
+    - Added changelog
+    - Bucephalus v4.0.0
+-
+  version: 1.0.1
+  changes:
+    - Implemented custom node option
+    - Rescan and reconnect option added
+    - Added fiat currency options
+    - Minor bug fixed
+
