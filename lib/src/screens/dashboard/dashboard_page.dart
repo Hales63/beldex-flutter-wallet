@@ -1143,7 +1143,16 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
                       index -= 2;
 
                       if (index < 0 || index >= items.length) {
-                        return Container();
+                        return Column(
+                          children: [
+                            SizedBox(height: 50,),
+                            Text('No transactions yet',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0),),
+                            SizedBox(height: 25,),
+                            Text('After you first transaction, you will\nbe able to view it here.',textAlign: TextAlign.center,),
+                            SizedBox(height: 40,),
+                            SvgPicture.asset('assets/images/no_transaction.svg')
+                          ],
+                        );
                       }
 
                       final item = items[index];
