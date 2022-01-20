@@ -8,7 +8,7 @@ class QrPainter extends CustomPainter {
     this.version,
     this.errorCorrectionLevel,
   ) : _qr = QrCode(version, errorCorrectionLevel) {
-    _p.color = color;a
+    _p.color = color;
 
     _qr.addData(data);
     _qr.make();
