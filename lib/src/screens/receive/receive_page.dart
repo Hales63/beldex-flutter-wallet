@@ -204,7 +204,6 @@ class ReceiveBodyState extends State<ReceiveBody> {
                           child: Column(
                             children: <Widget>[
                               Observer(builder: (_) {
-                                print('QR Code Data -> ${walletStore.subaddress.address},  ${walletStore.amountValue}');
                                 return Row(
                                   children: <Widget>[
                                     Spacer(flex: 1),

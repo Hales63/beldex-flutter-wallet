@@ -53,7 +53,7 @@ abstract class AddressBookStoreBase with Store {
     if (isValid && cryptoCurrency != null) {
       switch (cryptoCurrency) {
         case CryptoCurrency.bdx:
-          isValid = (value.length == 95)||(value.length == 97)||(value.length == 96);
+          isValid = (value.length == 95)||(value.length == 97)||(value.length == 96)||(value.length == 106);
           break;
         case CryptoCurrency.xmr:
           isValid = (value.length == 95)||(value.length == 106)||(value.length == 97)||(value.length == 96);
