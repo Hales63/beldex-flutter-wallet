@@ -110,6 +110,9 @@ class AddressTextField extends StatelessWidget {
         onURIScanned(uri);
       }
     } catch (e) {
+     /* ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Invalid BDX address'),
+      ));*/
       print('Error $e');
     }
   }

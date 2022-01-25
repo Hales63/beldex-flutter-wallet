@@ -92,7 +92,7 @@ class NewNodeFormState extends State<NewNodePageForm> {
             Flexible(
                 child: Container(
               padding: EdgeInsets.only(right: 8.0),
-              child: PrimaryButton(
+              child: PrimaryButtonNode(
                   onPressed: () {
                     _nodeAddressController.text = '';
                     _nodePortController.text = '';
@@ -101,9 +101,9 @@ class NewNodeFormState extends State<NewNodePageForm> {
                   },
                   text: S.of(context).reset,
                   color:
-                      Theme.of(context).accentTextTheme.button.backgroundColor,
+                      Theme.of(context).accentTextTheme.caption.backgroundColor,
                   borderColor:
-                      Theme.of(context).accentTextTheme.button.decorationColor),
+                      Theme.of(context).accentTextTheme.caption.decorationColor),
             )),
             Flexible(
                 child: Container(

@@ -97,7 +97,9 @@ class AddressBookPage extends BasePage {
       children: [
         Container(
             margin: EdgeInsets.only(
-                top: 40, left: constants.leftPx, right: constants.rightPx),
+                top: 40, left: constants.leftPx, right: constants.rightPx,),
+            padding: EdgeInsets.only(bottom:isEditable
+                ?55.0:0.0),
             child: Observer(
               builder: (_) => ListView.separated(
                   separatorBuilder: (_, __) => Divider(
@@ -341,7 +343,7 @@ class AddressBookPage extends BasePage {
             )),
         !isEditable
             ? Container()
-            : Positioned(
+            :Positioned(
                 bottom: 0,
                 child: Container(
                     decoration: BoxDecoration(

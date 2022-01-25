@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:beldex_wallet/src/wallet/beldex/calculate_estimated_fee.dart';
+import 'package:beldex_wallet/src/wallet/beldex/transaction/transaction_priority.dart';
 import 'package:beldex_wallet/src/widgets/new_slide_to_act.dart';
 import 'package:beldex_wallet/src/widgets/slide_to_act.dart';
 import 'package:flutter/cupertino.dart';
@@ -320,7 +322,7 @@ class NewStakeFormState extends State<NewStakeForm> with TickerProviderStateMixi
                               color: Colors
                                   .grey, //Theme.of(context).accentTextTheme.overline.backgroundColor,
                             )),
-                        Text('0.123456789',
+                        Text('${calculateEstimatedFee(priority: BeldexTransactionPriority.flash)}',
                             //'${calculateEstimatedFee(priority: BeldexTransactionPriority.slow)}',
                             style: TextStyle(
                               fontSize: 14,

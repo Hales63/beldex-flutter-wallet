@@ -365,7 +365,7 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
                                         Text(descriptionText,
                                             style: TextStyle(
                                                 fontSize: 11,
-                                                color: Palette.wildDarkBlue,
+                                                color: Theme.of(context).primaryTextTheme.caption.color,//Palette.wildDarkBlue,
                                                 height: 2.0))
                                       ],
                                     ),
@@ -429,7 +429,7 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
                                             BorderRadius.circular(10)),
                                     child: Container(
                                       color: Colors.transparent,
-                                      width: 250,
+                                      width: 300,
                                       padding: EdgeInsets.all(15),
                                       child: Column(
                                           crossAxisAlignment:
@@ -525,7 +525,7 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
                                           balanceStore.isReversing = true,
                                       child: Container(
                                         color: Colors.transparent,
-                                        width: 250,
+                                        width: 300,
                                         padding: EdgeInsets.all(15),
                                         child: Column(
                                           crossAxisAlignment:
@@ -928,7 +928,7 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
                             ),*/
                               Container(
                                 margin: EdgeInsets.only(
-                                    left: 25, right: 25, top: 50.0),
+                                    left: 10, right: 10, top: 50.0),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
@@ -940,7 +940,7 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
                                             .pushNamed(Routes.send);
                                       },
                                       child: Container(
-                                        width: 140,
+                                        width: 160,
                                         height: 50,
                                         decoration: BoxDecoration(
                                           color: Theme.of(context).cardColor,//Color.fromARGB(255, 40, 42, 51),
@@ -981,7 +981,7 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
                                             .pushNamed(Routes.receive);
                                       },
                                       child: Container(
-                                        width: 140,
+                                        width: 160,
                                         height: 50,
                                         decoration: BoxDecoration(
                                           color: Theme.of(context).cardColor,//Color.fromARGB(255, 40, 42, 51),
@@ -1024,119 +1024,131 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
                       }
 
                       if (index == 1 && actionListStore.totalCount > 0) {
-                        return Padding(
-                          padding:
-                              EdgeInsets.only(right: 20, top: 10, bottom: 20),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                Theme(
-                                  data: Theme.of(context).copyWith(
-                                      accentColor: Colors.green,
-                                      primaryColor: Colors.blue,),
-                                  child: Builder(
-                                    builder: (context) => PopupMenuButton<int>(
-                                      itemBuilder: (context) => [
-                                        PopupMenuItem(
-                                            enabled: false,
-                                            value: -1,
-                                            child: Text(S.of(context).transactions,
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Theme.of(context)
-                                                        .primaryTextTheme
-                                                        .caption
-                                                        .color))),
-                                        PopupMenuItem(
-                                            value: 0,
-                                            child: Observer(
-                                                builder: (_) => Row(
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                    children: [
-                                                      Text(S
-                                                          .of(context)
-                                                          .incoming),
-                                                      Theme(
-                                                        data: Theme.of(context).copyWith(accentColor: Colors.green,checkboxTheme: CheckboxThemeData(fillColor:MaterialStateProperty.all(Colors.green),checkColor: MaterialStateProperty.all(Colors.white),)),
-                                                        child: Checkbox(
-                                                          value: actionListStore
-                                                              .transactionFilterStore
-                                                              .displayIncoming,
-                                                          onChanged: (value) =>
-                                                              actionListStore
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Divider(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsets.only(right: 20, top: 10),
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: <Widget>[
+                                    Theme(
+                                      data: Theme.of(context).copyWith(
+                                          accentColor: Colors.green,
+                                          primaryColor: Colors.blue,),
+                                      child: Builder(
+                                        builder: (context) => PopupMenuButton<int>(
+                                          itemBuilder: (context) => [
+                                            PopupMenuItem(
+                                                enabled: false,
+                                                value: -1,
+                                                child: Text(S.of(context).transactions,
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        color: Theme.of(context)
+                                                            .primaryTextTheme
+                                                            .caption
+                                                            .color))),
+                                            PopupMenuItem(
+                                                value: 0,
+                                                child: Observer(
+                                                    builder: (_) => Row(
+                                                        mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                        children: [
+                                                          Text(S
+                                                              .of(context)
+                                                              .incoming),
+                                                          Theme(
+                                                            data: Theme.of(context).copyWith(accentColor: Colors.green,checkboxTheme: CheckboxThemeData(fillColor:MaterialStateProperty.all(Colors.green),checkColor: MaterialStateProperty.all(Colors.white),)),
+                                                            child: Checkbox(
+                                                              value: actionListStore
                                                                   .transactionFilterStore
-                                                                  .toggleIncoming(),
-                                                        ),
-                                                      )
-                                                    ]))),
-                                        PopupMenuItem(
-                                            value: 1,
-                                            child: Observer(
-                                                builder: (_) => Row(
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                    children: [
-                                                      Text(S
-                                                          .of(context)
-                                                          .outgoing),
-                                                      Theme(
-                                                        data: Theme.of(context).copyWith(accentColor: Colors.green,checkboxTheme: CheckboxThemeData(fillColor:MaterialStateProperty.all(Colors.green),checkColor: MaterialStateProperty.all(Colors.white),)),
-                                                        child: Checkbox(
-                                                          value: actionListStore
-                                                              .transactionFilterStore
-                                                              .displayOutgoing,
-                                                          onChanged: (value) =>
-                                                              actionListStore
+                                                                  .displayIncoming,
+                                                              onChanged: (value) =>
+                                                                  actionListStore
+                                                                      .transactionFilterStore
+                                                                      .toggleIncoming(),
+                                                            ),
+                                                          )
+                                                        ]))),
+                                            PopupMenuItem(
+                                                value: 1,
+                                                child: Observer(
+                                                    builder: (_) => Row(
+                                                        mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                        children: [
+                                                          Text(S
+                                                              .of(context)
+                                                              .outgoing),
+                                                          Theme(
+                                                            data: Theme.of(context).copyWith(accentColor: Colors.green,checkboxTheme: CheckboxThemeData(fillColor:MaterialStateProperty.all(Colors.green),checkColor: MaterialStateProperty.all(Colors.white),)),
+                                                            child: Checkbox(
+                                                              value: actionListStore
                                                                   .transactionFilterStore
-                                                                  .toggleOutgoing(),
-                                                        ),
-                                                      )
-                                                    ]))),
-                                        PopupMenuItem(
-                                            value: 2,
-                                            child: Text(S
-                                                .of(context)
-                                                .transactions_by_date)),
-                                      ],
-                                      onSelected: (item) async {
-                                        print('item length --> $item');
-                                        if (item == 2) {
-                                          final picked =
-                                          await date_rage_picker.showDatePicker(
-                                            context: context,
-                                            initialFirstDate: DateTime.now()
-                                                .subtract(Duration(days: 1)),
-                                            initialLastDate: (DateTime.now()),
-                                            firstDate: DateTime(2015),
-                                            lastDate: DateTime.now()
-                                                .add(Duration(days: 1)),);
+                                                                  .displayOutgoing,
+                                                              onChanged: (value) =>
+                                                                  actionListStore
+                                                                      .transactionFilterStore
+                                                                      .toggleOutgoing(),
+                                                            ),
+                                                          )
+                                                        ]))),
+                                            PopupMenuItem(
+                                                value: 2,
+                                                child: Text(S
+                                                    .of(context)
+                                                    .transactions_by_date)),
+                                          ],
+                                          onSelected: (item) async {
+                                            print('item length --> $item');
+                                            if (item == 2) {
+                                              final picked =
+                                              await date_rage_picker.showDatePicker(
+                                                context: context,
+                                                initialFirstDate: DateTime.now()
+                                                    .subtract(Duration(days: 1)),
+                                                initialLastDate: (DateTime.now()),
+                                                firstDate: DateTime(2015),
+                                                lastDate: DateTime.now()
+                                                    .add(Duration(days: 1)),);
 
-                                          print('picked length --> ${picked.length}');
+                                              print('picked length --> ${picked.length}');
 
-                                          if (picked != null &&
-                                              picked.length == 2) {
-                                            actionListStore.transactionFilterStore
-                                                .changeStartDate(picked.first);
-                                            actionListStore.transactionFilterStore
-                                                .changeEndDate(picked.last);
-                                          }
-                                        }
-                                      },
-                                      child: SvgPicture.asset('assets/images/filter.svg',width:18,height:18,color: Theme.of(context).primaryTextTheme.caption.color,)/*Text(S.of(context).filters,
-                                          style: TextStyle(
-                                              fontSize: 16.0,
-                                              color: Theme.of(context)
-                                                  .primaryTextTheme
-                                                  .subtitle2
-                                                  .color))*/,
+                                              if (picked != null &&
+                                                  picked.length == 2) {
+                                                actionListStore.transactionFilterStore
+                                                    .changeStartDate(picked.first);
+                                                actionListStore.transactionFilterStore
+                                                    .changeEndDate(picked.last);
+                                              }
+                                            }
+                                          },
+                                          child: SvgPicture.asset('assets/images/filter.svg',width:18,height:18,color: Theme.of(context).primaryTextTheme.caption.color,)/*Text(S.of(context).filters,
+                                              style: TextStyle(
+                                                  fontSize: 16.0,
+                                                  color: Theme.of(context)
+                                                      .primaryTextTheme
+                                                      .subtitle2
+                                                      .color))*/,
+                                        )
+                                      ),
                                     )
-                                  ),
-                                )
 
-                              ]),
+                                  ]),
+                            ),
+                          ],
                         );
                       }
 

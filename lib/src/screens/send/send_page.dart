@@ -133,7 +133,6 @@ class SendFormState extends State<SendForm> with TickerProviderStateMixin {
           FocusScope.of(context).unfocus();
         },
         child: Stack(
-
           children: [
             Column(
               children: [

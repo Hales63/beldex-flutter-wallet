@@ -15,6 +15,7 @@ import 'package:beldex_wallet/src/wallet/beldex/beldex_amount_format.dart';
 import 'package:beldex_wallet/src/widgets/nav/nav_list_header.dart';
 import 'package:beldex_wallet/src/widgets/nav/nav_list_trailing.dart';
 import 'package:beldex_wallet/src/widgets/beldex_dialog.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 extension StakeParsing on StakeRow {
   double get ownedPercentage {
@@ -47,6 +48,11 @@ class StakePageBody extends StatefulWidget {
 }
 
 class StakePageBodyState extends State<StakePageBody> {
+  void _launchUrl(String url) async {
+    print('call _launchURL');
+    if (await canLaunch(url)) await launch(url);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -105,7 +111,7 @@ class StakePageBodyState extends State<StakePageBody> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       IconButton(
-                        icon: Icon(Icons.arrow_upward_rounded),
+                        icon: Icon(Icons.arrow_circle_up_outlined,size: 40,),//Icon(Icons.arrow_upward_rounded,size: 40,),
                         onPressed: () => Navigator.of(context, rootNavigator: true)
                             .pushNamed(Routes.newStake),
                       ),
@@ -195,12 +201,24 @@ class StakePageBodyState extends State<StakePageBody> {
                                     )
                                   ],
                                 )),
-                            child: NavListTrailing(
-                              leading: CircularProgressIndicator(
-                                  valueColor:
-                                  AlwaysStoppedAnimation<Color>(stakeColor),
-                                  value: stake.ownedPercentage),
-                              text: nodeName,
+                            child: InkWell(
+                              onTap: (){
+                                final url='https://explorer.beldex.io/mn/$masterNodeKey';
+                                _launchUrl(url);
+                              },
+                              child: NavListTrailing(
+                                leading: Stack(
+                                  alignment: AlignmentDirectional.center,
+                                  children: [
+                                    CircularProgressIndicator(
+                                        valueColor:
+                                        AlwaysStoppedAnimation<Color>(stakeColor),
+                                        value: stake.ownedPercentage),
+                                    Text('${index+1}'),
+                                  ],
+                                ),
+                                text: nodeName,
+                              ),
                             ));
                       }),
               ],

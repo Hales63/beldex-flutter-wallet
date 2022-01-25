@@ -49,7 +49,7 @@ class BeldexTextField extends StatelessWidget {
                 prefixIcon: prefixIcon,
                 suffixIcon: suffixIcon,
                 hintStyle:
-                    TextStyle(fontSize: 16.0, color: Theme.of(context).hintColor,fontWeight: FontWeight.bold),
+                    TextStyle(fontSize: 16.0, color: Colors.grey.withOpacity(0.6),fontWeight: FontWeight.bold),
                 hintText: hintText,
                 /*focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: BeldexPalette.teal, width: 2.0)),
