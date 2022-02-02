@@ -15,6 +15,7 @@ version: 1.0.2+3
 
 # Version Code 1 Version Name 1.0.0 Release Date : 30-12-2021
 # Version Code 2 Version Name 1.0.1 Release Date : 07-01-2022
+# Version Code 3 Version Name 1.0.2 Internal Test Release Date : 02-02-2022
 
 
 # keytool -genkey -v -keystore c:\Users\konst\key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key

@@ -191,10 +191,10 @@ class _BeldexWalletAppState extends State<BeldexWalletApp> {
             forceUpdate: true,
             appStoreUrl: 'https://apps.apple.com/in/app/beldex-official-wallet/id1603063369',
             playStoreUrl: 'https://play.google.com/store/apps/details?id=io.beldex.wallet',
-            iOSDescription: 'Your App requires that you update to the latest version. You cannot use this app until it is updated.',
+            iOSDescription: 'A new version of the Beldex wallet is available. Update to continue using it.',
             iOSUpdateButtonLabel: 'Upgrade',
             iOSCloseButtonLabel: 'Exit',
-            iOSAlertTitle: 'Update Available',
+            iOSAlertTitle: 'Mandatory Update',
         );
       }/* else if (serverLatestVersion > localVersion) {
         NativeUpdater.displayUpdateAlert(

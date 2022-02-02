@@ -107,7 +107,7 @@ class ProfilePageBodyState extends State<ProfilePageBody> {
                 onTap: () =>
                     Navigator.of(context).pushNamed(Routes.settings)),
             NewNavListHeader(title: S.current.wallet_menu),
-            NewNavListArrow(
+            /*NewNavListArrow(
                 balanceVisibility: false,
                 decimalVisibility: false,
                 currencyVisibility: false,
@@ -116,7 +116,7 @@ class ProfilePageBodyState extends State<ProfilePageBody> {
                     color: Theme.of(context).primaryTextTheme.headline6.color),
                 text: S.current.title_stakes,
                 onTap: () =>
-                    Navigator.of(context).pushNamed(Routes.stake)),
+                    Navigator.of(context).pushNamed(Routes.stake)),*/
             NewNavListArrow(
                 balanceVisibility: false,
                 decimalVisibility: false,
