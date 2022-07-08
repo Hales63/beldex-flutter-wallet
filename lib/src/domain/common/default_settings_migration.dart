@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,8 +11,8 @@ import 'package:beldex_wallet/src/wallet/beldex/transaction/transaction_priority
 
 Future defaultSettingsMigration(
     {@required int version,
-    @required SharedPreferences sharedPreferences,
-    @required Box<Node> nodes}) async {
+      @required SharedPreferences sharedPreferences,
+      @required Box<Node> nodes}) async {
   final currentVersion =
       sharedPreferences.getInt('current_default_settings_migration_version') ??
           0;
@@ -62,14 +64,14 @@ Future defaultSettingsMigration(
 
 Future<void> replaceNodesMigration({@required Box<Node> nodes}) async {
   final replaceNodes = <String, Node>{
-    'mainnet.beldex.io:29095':
-    Node(uri: 'mainnet.beldex.io:29095'),
+    'publicnode1.rpcnode.stream:29095':
+    Node(uri: 'publicnode1.rpcnode.stream:29095'),
     'explorer.beldex.io:19091':
     Node(uri: 'explorer.beldex.io:19091'),
     'publicnode5.rpcnode.stream:29095':
     Node(uri: 'publicnode5.rpcnode.stream:29095'),
-    'publicnode1.rpcnode.stream:29095':
-    Node(uri: 'publicnode1.rpcnode.stream:29095'),
+    'mainnet.beldex.io:29095':
+    Node(uri: 'mainnet.beldex.io:29095'),
     'publicnode2.rpcnode.stream:29095':
     Node(uri: 'publicnode2.rpcnode.stream:29095'),
     'publicnode3.rpcnode.stream:29095':
@@ -92,40 +94,58 @@ Future<void> replaceNodesMigration({@required Box<Node> nodes}) async {
 
 Future<void> changeCurrentNodeToDefault(
     {@required SharedPreferences sharedPreferences,
-    @required Box<Node> nodes}) async {
+      @required Box<Node> nodes}) async {
   final timeZone = DateTime.now().timeZoneOffset.inHours;
   var nodeUri = '';
 
+  const nodesList = <String>[
+    'publicnode1.rpcnode.stream:29095',
+    'explorer.beldex.io:19091',
+    'publicnode5.rpcnode.stream:29095',
+    'mainnet.beldex.io:29095',
+    'publicnode2.rpcnode.stream:29095',
+    'publicnode3.rpcnode.stream:29095',
+    'publicnode4.rpcnode.stream:29095'
+  ];
+
   if (timeZone >= 1) { // Eurasia
-    nodeUri = 'mainnet.beldex.io:29095';
+    final _random = Random();
+    final element = nodesList[_random.nextInt(nodesList.length)];
+    print('nodeId 0 -> ${element.toString()}');
+    nodeUri = element.toString();
   } else if (timeZone <= -4) { // America
-    nodeUri = 'explorer.beldex.io:19091';
+    nodeUri = 'publicnode1.rpcnode.stream:29095';
   }
 
   final node = nodes.values.firstWhere((Node node) => node.uri == nodeUri) ??
       nodes.values.first;
   final nodeId = node != null ? node.key as int : 0; // 0 - England
+  /*print('nodeId 1 -> $nodeUri');
+  print('nodeId 2 -> ${node!=null}');
+  print('nodeId 3 -> ${node.key.toString()}');
+  print('nodeId 4 -> ${nodes.values.first.toString()}');*/
+  print('nodeId 5 -> $nodeId');
 
   await sharedPreferences.setInt('current_node_id', nodeId);
 }
 
 Future<void> replaceDefaultNode(
     {@required SharedPreferences sharedPreferences,
-    @required Box<Node> nodes}) async {
+      @required Box<Node> nodes}) async {
   const nodesForReplace = <String>[
-    'mainnet.beldex.io:29095',
+    'publicnode1.rpcnode.stream:29095',
     'explorer.beldex.io:19091',
     'publicnode5.rpcnode.stream:29095',
-    'publicnode1.rpcnode.stream:29095',
+    'mainnet.beldex.io:29095',
     'publicnode2.rpcnode.stream:29095',
     'publicnode3.rpcnode.stream:29095',
     'publicnode4.rpcnode.stream:29095'
   ];
   final currentNodeId = sharedPreferences.getInt('current_node_id');
   final currentNode =
-      nodes.values.firstWhere((Node node) => node.key == currentNodeId);
+  nodes.values.firstWhere((Node node) => node.key == currentNodeId);
   final needToReplace =
-      currentNode == null ? true : nodesForReplace.contains(currentNode.uri);
+  currentNode == null ? true : nodesForReplace.contains(currentNode.uri);
 
   if (!needToReplace) {
     return;

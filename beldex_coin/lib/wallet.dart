@@ -180,7 +180,7 @@ class SyncListener {
         }
       }
 
-      // 1. Actual new height; 2. Blocks left to finish; 3. Progress in percents;
+      // 1. Actual new height; 2. Blocks left to finish; 3. Progress in percents; 4. true
       print('synHeight, left, ptc, refreshing --> $syncHeight, $left, $ptc, $refreshing');
      /* if(left==0){
         onNewBlock?.call(syncHeight, left, ptc, false);

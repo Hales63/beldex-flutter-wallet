@@ -1624,6 +1624,7 @@ class EnglishMnemonics {
     'zippers',
     'zodiac',
     'zombie',
-    'zones'
+    'zones',
+    'zoom'
   ];
 }

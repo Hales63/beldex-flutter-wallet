@@ -1,5 +1,5 @@
 -
-  uri: mainnet.beldex.io:29095
+  uri: publicnode1.rpcnode.stream:29095
   is_default: true
 -
   uri: explorer.beldex.io:19091
@@ -8,7 +8,7 @@
   uri: publicnode5.rpcnode.stream:29095
   is_default: false
 -
-  uri: publicnode1.rpcnode.stream:29095
+  uri: mainnet.beldex.io:29095
   is_default: false
 -
   uri: publicnode2.rpcnode.stream:29095

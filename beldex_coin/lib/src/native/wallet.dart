@@ -53,7 +53,7 @@ final isConnectedNative = beldexApi
     .asFunction<IsConnected>();
 
 final setupNodeNative = beldexApi
-    .lookup<NativeFunction<setup_node>>('setup_node')
+      .lookup<NativeFunction<setup_node>>('setup_node')
     .asFunction<SetupNode>();
 
 final startRefreshNative = beldexApi

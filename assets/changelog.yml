@@ -21,3 +21,8 @@
     - Added light theme
     - Address book UI changed
     - Minor bugs fixed
+-
+  version: 1.0.4
+  changes:
+    - Better node synchronization
+    - Minor bugs fixed
